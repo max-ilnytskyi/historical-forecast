@@ -51,11 +51,12 @@ export function useDailyTemperature({
     });
   }, [params]);
 
-  const { data, isLoading, error } = useQuery<DailyTemperatureResponse>({
-    queryKey: [cacheKey, params],
-    queryFn,
-    placeholderData: keepPreviousData,
-  });
+  const { data, isLoading, error, isPlaceholderData } =
+    useQuery<DailyTemperatureResponse>({
+      queryKey: [cacheKey, params],
+      queryFn,
+      placeholderData: keepPreviousData,
+    });
 
   const nodes = data?.[itemsKey]?.nodes || [];
 
@@ -64,6 +65,7 @@ export function useDailyTemperature({
     dailyTemperatureError: error,
     dailyTemperatureErrorMessage: parseRequestError(error),
     dailyTemperatureLoading: isLoading,
+    dailyTemperaturePlaceholderData: isPlaceholderData,
     dailyTemperatureFilters: filters,
     filterDailyTemperature: setFilters,
   };

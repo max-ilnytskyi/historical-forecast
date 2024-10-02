@@ -13,6 +13,7 @@ export function HomePage() {
     dailyTemperature,
     dailyTemperatureLoading,
     dailyTemperatureErrorMessage,
+    dailyTemperaturePlaceholderData,
     dailyTemperatureFilters,
     filterDailyTemperature,
   } = useDailyTemperature({ initialFilters });
@@ -22,6 +23,7 @@ export function HomePage() {
       dailyTemperature={dailyTemperature}
       dailyTemperatureLoading={dailyTemperatureLoading}
       dailyTemperatureErrorMessage={dailyTemperatureErrorMessage}
+      dailyTemperaturePlaceholderData={dailyTemperaturePlaceholderData}
       dailyTemperatureFilters={dailyTemperatureFilters}
       filterDailyTemperature={filterDailyTemperature}
     />

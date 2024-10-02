@@ -25,6 +25,7 @@ interface DailyTemperatureChartBlockProps {
   dailyTemperature: DailyTemperatureBaseNode[];
   dailyTemperatureLoading: boolean;
   dailyTemperatureErrorMessage: string | null;
+  dailyTemperaturePlaceholderData: boolean;
   dailyTemperatureFilters: DailyTemperatureFilters;
   filterDailyTemperature: (filters: DailyTemperatureFilters) => void;
 }
@@ -33,6 +34,7 @@ export function DailyTemperatureChartBlock({
   dailyTemperature,
   dailyTemperatureLoading,
   dailyTemperatureErrorMessage,
+  dailyTemperaturePlaceholderData,
   dailyTemperatureFilters,
   filterDailyTemperature,
 }: DailyTemperatureChartBlockProps) {
@@ -57,12 +59,16 @@ export function DailyTemperatureChartBlock({
       <div className="w-full max-w-4xl flex flex-col items-center space-y-2 md:space-y-4">
         <div className="w-full max-w-full flex justify-center items-center">
           <div className="w-full overflow-x-auto overflow-y-hidden">
-            <div className="min-w-[800px] h-[400px] flex justify-center">
-              <Loading loaded={!dailyTemperatureLoading}>
-                <DailyTemperatureChart
-                  dailyTemperature={reducedDailyTemperature}
-                />
-              </Loading>
+            <div className="min-w-[800px] h-[400px] flex justify-center min-w-[800px] h-[400px] flex justify-center relative">
+              <Loading
+                className="bg-gray-500 bg-opacity-10 absolute inset-0 flex items-center justify-center text-gray-400'"
+                loaded={
+                  !dailyTemperatureLoading && !dailyTemperaturePlaceholderData
+                }
+              />
+              <DailyTemperatureChart
+                dailyTemperature={reducedDailyTemperature}
+              />
             </div>
           </div>
         </div>
