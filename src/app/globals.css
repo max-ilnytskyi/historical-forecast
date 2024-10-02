@@ -25,3 +25,13 @@ body {
     text-wrap: balance;
   }
 }
+
+/* fix react-datepicker layout shifts */
+.react-datepicker__tab-loop {
+  position: absolute;
+}
+
+/* hide year/month title if dropdowns used */
+.react-datepicker__current-month--hasYearDropdown.react-datepicker__current-month--hasMonthDropdown{
+  display: none;
+}

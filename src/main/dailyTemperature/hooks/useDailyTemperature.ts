@@ -1,5 +1,5 @@
 import { useCallback, useState, useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 
 import { FetchIndexQueryBaseParams } from '@/types';
 import {
@@ -54,6 +54,7 @@ export function useDailyTemperature({
   const { data, isLoading, error } = useQuery<DailyTemperatureResponse>({
     queryKey: [cacheKey, params],
     queryFn,
+    placeholderData: keepPreviousData,
   });
 
   const nodes = data?.[itemsKey]?.nodes || [];
