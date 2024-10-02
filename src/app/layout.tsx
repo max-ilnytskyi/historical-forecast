@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import cl from 'classnames';
+
+import { AppProvider } from '@/common/AppProvider';
+import { AppLayout } from '@/common/layouts/AppLayout';
+
 import './globals.css';
 
 const geistSans = localFont({
@@ -24,11 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="h-screen overflow-hidden" lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cl(
+          'h-screen overflow-hidden relative overflow-hidden text-white',
+          geistSans.variable,
+          geistMono.variable,
+          'antialiased',
+        )}
       >
-        {children}
+        <AppProvider>
+          <AppLayout>{children}</AppLayout>
+        </AppProvider>
       </body>
     </html>
   );
