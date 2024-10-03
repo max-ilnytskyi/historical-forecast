@@ -52,14 +52,14 @@ export function DailyTemperatureChartBlock({
   );
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center p-4">
+    <div className="h-screen  flex flex-col items-center justify-center p-4">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-center">
         {strings.temperatureInJerusalemC}
       </h1>
       <div className="w-full max-w-4xl flex flex-col items-center space-y-2 md:space-y-4">
         <div className="w-full max-w-full flex justify-center items-center">
           <div className="w-full overflow-x-auto overflow-y-hidden">
-            <div className="min-w-[800px] h-[400px] flex justify-center min-w-[800px] h-[400px] flex justify-center relative">
+            <div className="flex justify-center min-w-[800px] h-[400px] flex justify-center relative">
               <Loading
                 className="bg-gray-500 bg-opacity-10 absolute inset-0 flex items-center justify-center text-gray-400'"
                 loaded={

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="h-screen overflow-hidden" lang="en">
-      <body className="h-screen overflow-hidden relative overflow-hidden text-white">
+      <body className="h-screen overflow-hidden relative text-white">
         <AppProvider>
           <AppLayout>{children}</AppLayout>
         </AppProvider>
