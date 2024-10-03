@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import compact from 'lodash/compact';
+import isString from 'lodash/isString';
 
 import { processError } from '@/server/utils/exceptions/processError';
 import { ResponseFormatter } from '@/server/utils/ResponseFormatter';
@@ -31,7 +32,7 @@ export async function GET(request: NextRequest) {
     const start_date = options.filters?.startDate;
     const end_date = options.filters?.endDate;
 
-    if (!start_date || !end_date) {
+    if (!isString(start_date) || !isString(end_date)) {
       const fullMessages = compact([
         start_date ? null : 'Start date is required',
         end_date ? null : 'End date is required',
