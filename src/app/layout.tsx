@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import cl from 'classnames';
 
 import { AppProvider } from '@/common/AppProvider';
-import { AppLayout } from '@/common/layouts/AppLayout';
+import { AppLayout } from '@/common/components/layouts/AppLayout';
 
 import './globals.css';
 
