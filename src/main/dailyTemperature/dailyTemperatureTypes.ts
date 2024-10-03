@@ -8,3 +8,8 @@ export interface DailyTemperatureFilters {
   startDate?: string;
   endDate?: string;
 }
+
+export type DailyTemperatureDateRangeFilters = Pick<
+  DailyTemperatureFilters,
+  'endDate' | 'startDate'
+>;
