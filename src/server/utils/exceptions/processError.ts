@@ -3,11 +3,13 @@ import { NextResponse } from 'next/server';
 import { BaseException } from './BaseException';
 import { ServerException } from './ServerException';
 
+import { IS_PRODUCTION } from '@/config';
+
 function prepareErrorResponse<T extends BaseException>(error: T) {
   return {
     ...(error || {}),
     message: error?.message,
-    stack: error?.stack,
+    stack: IS_PRODUCTION ? null : error?.stack,
     cause: error?.cause,
     fullMessages: error?.fullMessages,
   };
