@@ -8,7 +8,9 @@ export function AppLayout({ children }: AppLayoutProps) {
   return (
     <>
       <div className="h-screen bg-gradient-to-br from-indigo-950 via-gray-900 to-pink-950">
-        <main className="h-screen">{children}</main>
+        <main className="h-screen overflow-x-hidden overflow-y-auto">
+          {children}
+        </main>
       </div>
     </>
   );
